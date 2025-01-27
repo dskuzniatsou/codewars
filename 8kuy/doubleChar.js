@@ -19,24 +19,19 @@
 
 // my solution
 function doubleChar(str) {
-  str.replace(/./g, '$&$&')// Your code here
+  return str.split('').map(letter => letter + letter).join(''); // Your code here
 }
+console.log(doubleChar("1337"));
 
-function reverseWords(str){
-  return str.split(' ').reverse().join(' ')
-  // let arrWords = str.split(" ");
-  // let reverseArray = arrWords.reverse()
-  //  return reverseArray.join(" "); // reverse those words
-}
-console.log(reverseWords("row row row your boat"));
+// // best practices
+// function doubleChar(str) {
+// 	var word = '';
+//   for (var i = 0; i < str.length; i++){
+//   	word = word + str[i] + str[i];
+//   };
+//   return word;
+// };
 
-// best practices
-// function reverseWords(str){
-//   var reverse = [];
-//   var words = str.split(" ");
-//   for(let i=words.length-1; i>=0; i--){
-//     reverse.push(words[i]);
-    
-//   }
-//   return reverse.join(" ")
+// function doubleChar(str) {
+//   return str.replace(/(.)/g, "$1$1")
 // }
