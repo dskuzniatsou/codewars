@@ -24,7 +24,6 @@
 const object = {};
 
 function addProperty(obj, prop, value) {
-
   if (prop in obj) {
     throw new Error("The property already exists!");
   }
@@ -34,9 +33,7 @@ addProperty(object, "name", "Palle")
 console.log(object);
 
 //Best Practices
-
 // function addProperty(obj, prop, value) {
 //   if (obj.hasOwnProperty(prop)) throw "Error: Property already present";
-
 //   obj[prop] = value;
 // }
