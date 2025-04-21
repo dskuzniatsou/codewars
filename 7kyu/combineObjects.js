@@ -64,7 +64,7 @@ const combine = (...rest) => rest.reduce((result, current) => {
   return result;
 }, {});
 
-console.log(combine({}, {}, {}));
+console.log(combine({2}, {3}, {}));
 
 //Best Practices
 
