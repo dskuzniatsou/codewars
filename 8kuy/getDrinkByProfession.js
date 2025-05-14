@@ -27,30 +27,35 @@
 
 // my solution
 function getDrinkByProfession(param) {
-  let getDrink = param[0].toUpperCase()+param.slice(1).toLowerCase()
+  let getDrink = param.toLowerCase()
+  console.log(getDrink);
   switch (getDrink) {
-    case "Jabroni":
+    case "jabroni":
       return "Patron Tequila"
       break;
-    case "School Counselor":
+    case "school counselor":
       return "Anything with Alcohol";
       break;
-    case "Programmer":
+    case "programmer":
       return "Hipster Craft Beer";
       break;
-    case "Bike Gang Member":
+    case "bike gang member":
       return "Moonshine";
       break;
-    case "Politician":
+    case "politician":
       return "Your tax dollars";
       break;
-    case "Rapper":
+    case "rapper":
       return "Cristal";
       break;
     default:
       return "Beer";
-  }}
-  console.log(getDrinkByProfession("raPpEr"));
+  }
+  
+}
+
+  
+  console.log(getDrinkByProfession("scHOOl counselor"));
 
   //Best Practices
 
