@@ -32,6 +32,6 @@ function nthEven(n){
 console.log(nthEven(100));
 
 // best practices
-// function unusualFive() {
-//   return 'fucku'.length
+// function nthEven(n){
+//   return n*2-2
 // }
