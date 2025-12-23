@@ -32,6 +32,7 @@
 function sakuraFall(v) {
  const DELTA = 400
     return v<=0? 0: DELTA/v
+   
 }
 console.log(sakuraFall(5));
 
