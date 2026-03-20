@@ -1,0 +1,83 @@
+// 😱 DESCRIPTIONS
+
+// Given coordinates of two points A and B on a circle determine what is the shortest direction from A to B.
+
+// To be clear with context, let's make some definitions:
+
+// Direction on a circle is number of degrees to advance along the circle from a point counterclockwise (positive sign) or clockwise (negative sign).
+// Length of a direction is its absolute value.
+// A point coordinate is value of a direction to the point from the rightmost circle point.
+// As any number of full turns doesn't change actual point position, with this definition multiple coordinates may correspond to a same point.
+// Conditions:
+
+// coordinates are integer
+// coordinates are NOT limited to 0..360 and may be negative
+// Examples:
+
+// With A at 0 (right) and B at 90 (top) the shortest direction is counterclockwise +90.
+// If points are swapped in the previous example, the shortest direction is flipped to -90.
+// With A at 180 (left) and B at -450 (bottom) the shortest direction is counterclockwise +90.
+// With A at 90 (top) and B at 270 (bottom) both 180 and -180 are correct.
+// 🐱‍👤 TESTS
+
+// const {assert, config} = require('chai');
+// config.truncateThreshold = 100;
+
+// describe('Shortest direction', () => {
+//   describe('example tests', () => {
+//     makeTest(0, 90, 90);
+//     makeTest(90, 0, -90);
+//     makeTest(180, -450, 90);
+//     makeTest(90, 270, 180);
+//     makeTest(90, 270, -180);
+//     makeTest(600, -600, -120);
+//     makeTest(700, -700, 40);
+//     makeTest(25019997929835 * 360, -25019997929835 * 360, 0);
+//     makeTest(25019997929835 * 360, -25019997929835 * 360 + 1, 1);
+//   });
+
+//   function makeTest(a, b, d) {
+//     const name = `[${a}] ${d >= 0 ? '\u21b6 (+' : '\u21b7 ('}${d}) ${d >= 0 ? '\u21b6' : '\u21b7'} [${b}]`;
+//     it(name, function () {
+//       const actual = shortestDirection(a, b);
+//       if (d === 180 || d === -180) {
+//         assert.isTrue(actual === 180 || actual === -180, `expected 180 or -180, got ${actual}`);
+//       } else {
+//         assert.strictEqual(actual, d);
+//       }
+//     });
+//   }
+// });
+
+
+// ✔ SOLUTION
+
+// my solution
+function shortestDirection(A, B) {  
+  let a = BigInt(A);
+  let b = BigInt(B);
+    let diff = (b - a) % 360n;
+  
+  
+  if (diff < 0n) diff += 360n;
+  
+  
+  if (diff > 180n) {
+    return Number(diff - 360n);
+  }
+ 
+  return Number(diff);
+}
+
+console.log(shortestDirection(0, 90));
+
+//Best Practices
+// function shortestDirection(a, b) {
+//   a %= 360
+//   b %= 360
+//   while(a < 0)a += 360
+//   while(b < a)b += 360
+//   r = b - a
+//   l = b - a - 360
+//   return -l < r ? l : r
+// }
